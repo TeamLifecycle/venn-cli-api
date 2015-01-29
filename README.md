@@ -1,5 +1,10 @@
 # express-coffee-mocha-boilerplate
-- Express 4 boilerplate including coffeescript, mocha testing, versioning, gulp, MVC
+- Express 4 MVC boilerplate including 
+  - coffeescript
+  - mocha testing framework
+  - versioning
+  - gulp
+  - environments (see config.coffee)
 - Generated/tweaked from https://github.com/petecoop/generator-express
 
 ##### run server
