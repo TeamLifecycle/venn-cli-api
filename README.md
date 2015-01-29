@@ -6,7 +6,7 @@
   - gulp
   - environments (see config.coffee)
 - Generated/tweaked from https://github.com/petecoop/generator-express
-- 
+
 ##### install
 ```
 npm install
