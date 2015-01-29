@@ -15,6 +15,6 @@ gulp.task('develop', function () {
   });
 });
 
-gulp.task('default', [
+gulp.task('serve', [
   'develop'
 ]);
