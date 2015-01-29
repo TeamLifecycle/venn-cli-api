@@ -6,22 +6,22 @@ config =
   development:
     root: rootPath
     app:
-      name: 'api2'
+      name: 'api'
     port: 3000
-    db: 'mongodb://localhost/api2-development'
+    db: 'mongodb://localhost/api-development'
 
   test:
     root: rootPath
     app:
-      name: 'api2'
+      name: 'api'
     port: 3000
-    db: 'mongodb://localhost/api2-test'
+    db: 'mongodb://localhost/api-test'
 
   production:
     root: rootPath
     app:
-      name: 'api2'
+      name: 'api'
     port: 3000
-    db: 'mongodb://localhost/api2-production'
+    db: 'mongodb://localhost/api-production'
 
 module.exports = config[env]
