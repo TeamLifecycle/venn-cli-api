@@ -1,5 +1,5 @@
 # express-coffee-mocha-boilerplate
-###### a starting point that we use at Venn to create a modular, testable, coffeescriptable API
+###### a boilerplate api that we use at Venn to create a modular, testable, coffeescriptable API
 - Express 4 MVC boilerplate including 
   - coffeescript
   - mocha testing framework
