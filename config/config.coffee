@@ -7,21 +7,21 @@ config =
     root: rootPath
     app:
       name: 'api'
-    port: 3000
-    db: 'mongodb://localhost/api-development'
+    port: process.env.PORT || 3000
+    db: process.env.MONGO_URL || 'mongodb://localhost/api-development'
 
   test:
     root: rootPath
     app:
       name: 'api'
-    port: 3000
-    db: 'mongodb://localhost/api-test'
+    port: process.env.PORT || 80
+    db: process.env.MONGO_URL || 'mongodb://localhost/api-test'
 
   production:
     root: rootPath
     app:
       name: 'api'
-    port: 3000
-    db: 'mongodb://localhost/api-production'
+    port: process.env.PORT || 80
+    db: process.env.MONGO_URL || 'mongodb://localhost/api-production'
 
 module.exports = config[env]
