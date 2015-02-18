@@ -5,6 +5,71 @@ fs = require 'fs'
 homeController.index = (req, res) ->
 	return res.sendStatus 200
 
+homeController.mixpanel = (req, res) ->
+
+	project = req.body.project
+	username = req.body.username
+	password = req.body.password
+
+	result = undefined
+
+	(new Nightmare)
+	.goto('https://mixpanel.com/login/')
+	# .wait(3000)
+		.type('input#id_email', username)
+		.type('input#id_password', password)
+	.click('input[type="submit"]')
+	.wait(3000)
+	# ensure login successful
+	.evaluate((->
+		document.querySelectorAll('.select_button').length
+	), (exists) ->
+		unless exists
+			unless result
+				result = 
+					status: 400
+					data:
+						"error": "Invalid credentials"
+	)
+	.click('.select_button')
+		.wait(3000)
+		.type('#id_name', project)
+	.click('input#create_submit[type="submit"]')
+		.wait(3000)
+	# ensure project not already created
+	# TODO ensure this evaluates fully before evaluate below it
+	.evaluate((->
+		document.querySelectorAll('.window_wrap .top_section').length
+	), (windows) ->
+		unless result
+			if windows > 1
+				result = {
+					status: 400
+					data:
+						"error": "Error: Project '#{project}' already created"
+				}
+	)
+	# get token
+	.evaluate((->
+		document.querySelector('#settings_modal .sm_content.management > div:nth-child(6) div.value').innerText
+	), (token) ->
+		unless result
+			token = token.trim() if token
+			if token
+				result =
+					status: 200
+					data:
+						keys: [
+							{'MIXPANEL_TOKEN':token}
+						]
+						"install-cmd": "npm install mixpanel --save"
+
+	)
+	.run( ->
+		return res.status(result.status).send(result.data)
+	)
+
+
 # homeController.stripe = (req, res) ->
 # 	new Nightmare(
 # 		timeout: 20000
@@ -46,58 +111,6 @@ homeController.index = (req, res) ->
 # 	.run(->
 # 		return res.sendStatus 201
 # 	)
-
-homeController.mixpanel = (req, res) ->
-
-	project = req.body.project
-	username = req.body.username
-	password = req.body.password
-
-	console.log "mp"
-	(new Nightmare)
-	# .on 
-	.goto('https://mixpanel.com/login/')
-	# .wait(3000)
-	.type('input#id_email', username)
-	.type('input#id_password', password)
-	.click('input[type="submit"]')
-	.wait(3000)
-	# ensure login successful
-	.evaluate((->
-		document.querySelectorAll('.select_button').length
-	), (exists) ->
-		console.log "exists", exists
-		unless exists
-			return res.status(400).send
-				"error": "Invalid credentials"
-	)
-	.click('.select_button')
-	.wait(3000)
-	.type('#id_name', project)
-	.click('input#create_submit[type="submit"]')
-	.wait(3000)
-	.screenshot('tmp/mixpanel-before-project-create-1.png')
-	# ensure project not already created
-	# TODO ensure this evaluates fully before evaluate below it
-	.evaluate((->
-		document.querySelectorAll('.window_wrap .top_section').length
-	), (windows) ->
-		console.log "windows", windows
-		if windows > 1
-			return res.status(400).send
-				"error": "Error: Project '#{project}' already created"
-	)
-	.evaluate((->
-		document.querySelector('#settings_modal .sm_content.management > div:nth-child(6) div.value').innerText
-	), (token) ->
-		console.log "token: #{token}"
-		return res.status(200).send
-			"keys": [
-				"MIXPANEL_TOKEN": token.trim()
-			]
-	)
-	# document.querySelectorAll('.window_wrap .top_section').length
-	.run()
 
 # homeController.ants = (req, res) ->
 # 	(new Nightmare)
