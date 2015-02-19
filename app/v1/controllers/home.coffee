@@ -59,14 +59,16 @@ homeController.mixpanel = (req, res) ->
 				result =
 					status: 200
 					data:
-						keys: [
-							{'MIXPANEL_TOKEN':token}
-						]
+						keys:
+							name: "MIXPANEL"
+							value:
+								TOKEN: token
 						"install-cmd": "npm install mixpanel --save"
 
 	)
 	.run( ->
-		return res.status(result.status).send(result.data)
+		return res.status(result.status).send(result.data) if result
+		return res.status(500).send({error: "Something went wrong :("})
 	)
 
 
