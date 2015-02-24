@@ -12,7 +12,7 @@ homeController.keys = (req, res) ->
 	  Bucket: v.AWS.S3_BUCKET.PLATFORMKEYS
 	  Key: req.body.appId
 	)
-	s3.upload { Body: "req" }, ->
+	s3.upload { Body: req.body.keys }, ->
 		return res.sendStatus 200
 
 module.exports = homeController
