@@ -23,24 +23,3 @@ describe 'ensuring database working', ->
 		, (err, article) ->
 			article.should.exist
 			done()
-
-
-describe 'getting api keys', ->
-	describe 'mixpanel', ->
-		it 'should respond with a 400 since project name already used', (done) ->
-			data =
-				"username": "timmyg13@gmail.com" 
-				"password": "orange13"
-				"project": "project123"
-			request.post
-				url: "http://localhost:3000/v1/node/mixpanel"
-				body: data
-			, (error, response, body) ->
-				console.log error if error
-				console.log "reeeesponse", response.statusCode
-				console.log body
-				console.log "\n\n\n\n"
-				response.statusCode.should.equal 200
-				should.exist body.keys[0]["MIXPANEL_TOKEN"]
-				body.keys[0]["MIXPANEL_TOKEN"].length.should.be.at.least 10
-				done()
