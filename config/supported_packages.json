@@ -1,0 +1,60 @@
+{
+  "node": {
+    "places" : {
+      "id": "places",
+      "name": "Venn Places",
+      "active": true,
+      "preInstallCmd": "mkdir node_modules",
+      "uninstallCmd": "npm uninstall --save venn-places",
+      "installCmd": "npm install --save venn-places",
+      "installedMsg": "Venn Places installed. Now configuring for use."
+    },
+    "email": {
+      "id": "email",
+      "name": "Venn Email",
+      "active": false
+    },
+    "push": {
+      "id": "push",
+      "name": "Venn Push",
+      "active": false
+    }
+  },
+  "python": {
+    "places" : {
+      "id": "places",
+      "name": "Venn Places",
+      "active": false
+    },
+    "email" : {
+      "id": "email",
+      "name": "Venn Email",
+      "active": false
+    },
+    "push" : {
+      "id": "push",
+      "name": "Venn Push",
+      "active": false
+    }
+  },
+  "ruby": {
+    "places" : {
+      "id": "places",
+      "name": "Venn Places",
+      "active": false
+    },
+    "email" : {
+      "id": "email",
+      "name": "Venn Email",
+      "active": false
+    },
+    "push" : {
+      "id": "push",
+      "name": "Venn Push",
+      "active": false
+    }
+  },
+  "php": {},
+  "objc": {},
+  "android": {}
+}

@@ -1,0 +1,46 @@
+{
+  "places": [
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "params": [
+        "key",
+        "secret"
+      ]
+    },
+    {
+      "id": "factual",
+      "name": "Factual",
+      "params": [ 
+        "key",
+        "secret"
+    ]
+    },
+    {
+      "id": "foursquare",
+      "name": "Foursquare",
+      "params": [
+        "key",
+        "secret"
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "params": [
+        "key"
+      ]
+    },
+     {
+      "id": "yelp",
+      "name": "Yelp",
+      "params": [
+        "consumer_key",
+        "consumer_secret",
+        "token",
+        "token_secret"
+      ]
+    }
+  ]
+}
+
