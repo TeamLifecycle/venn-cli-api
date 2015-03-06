@@ -7,7 +7,8 @@
       "preInstallCmd": "mkdir node_modules",
       "uninstallCmd": "npm uninstall --save venn-places",
       "installCmd": "npm install --save venn-places",
-      "installedMsg": "Venn Places installed. Now configuring for use."
+      "installedMsg": "Venn Places installed.",
+      "configuredMsg": "Venn Places configured.\nYou can start using with:\nvar places = require(\"venn-places\");\nplaces.init(require(process.env.PWD + \"/.vennconfig.json\")[\"app\"][\"id\"]);\nplaces.search(....)"
     },
     "email": {
       "id": "email",

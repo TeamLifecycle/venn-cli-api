@@ -26,12 +26,11 @@ homeController.updateKeys = (req, res) ->
 	s3.getObject { }, (error, data) ->
 		keysObj = {}
 		if error
-			console.log 'Failed to retrieve an object: ' + error
+			console.error 'Failed to retrieve an object: ' + error
 		else
 			keysObj = JSON.parse(data["Body"].toString())
 
 		for attributename of req.body.keys
-			console.log attributename
 			service = attributename.split("/")[0]
 			key = attributename.split("/")[1]
 			value = req.body.keys[attributename]
@@ -39,7 +38,7 @@ homeController.updateKeys = (req, res) ->
 			keysObj[service][key] = value
 		
 		s3.upload { Body: JSON.stringify(keysObj, null, 2) }, ->
-			return res.sendStatus(200)
+			return res.status(200).send supportedPackages[req.params.lang][req.params.service]
 
 homeController.getPackages = (req, res) ->
 	lang = req.params.lang
@@ -48,7 +47,6 @@ homeController.getPackages = (req, res) ->
 homeController.installPackages = (req, res) ->
 	lang = req.params.lang
 	service = req.params.service
-	console.log supportedPackages[lang][service]
 	res.status(200).send supportedPackages[lang][service]
 
 module.exports = homeController
