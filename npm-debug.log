@@ -1,0 +1,80 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/timgiblin/Dropbox/Code/cli-api',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/timgiblin/.npm/api/0.0.1/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/timgiblin/.npm/api/0.0.1/package.tgz',
+10 verbose tar pack   '/Users/timgiblin/Dropbox/Code/cli-api' ]
+11 verbose tarball /Users/timgiblin/.npm/api/0.0.1/package.tgz
+12 verbose folder /Users/timgiblin/Dropbox/Code/cli-api
+13 info prepublish api@0.0.1
+14 verbose addLocalTarball adding from inside cache /Users/timgiblin/.npm/api/0.0.1/package.tgz
+15 silly cache afterAdd api@0.0.1
+16 verbose afterAdd /Users/timgiblin/.npm/api/0.0.1/package/package.json not in flight; writing
+17 verbose afterAdd /Users/timgiblin/.npm/api/0.0.1/package/package.json written
+18 silly publish { name: 'api',
+18 silly publish   version: '0.0.1',
+18 silly publish   private: true,
+18 silly publish   main: 'app.js',
+18 silly publish   dependencies:
+18 silly publish    { 'aws-sdk': '^2.1.14',
+18 silly publish      'body-parser': '~1.10.0',
+18 silly publish      'coffee-script': '~1.8.0',
+18 silly publish      compression: '~1.3.0',
+18 silly publish      'cookie-parser': '~1.3.3',
+18 silly publish      express: '~4.11.0',
+18 silly publish      'express-handlebars': '~1.1.0',
+18 silly publish      fs: '0.0.2',
+18 silly publish      glob: '~4.3.1',
+18 silly publish      'method-override': '~2.3.0',
+18 silly publish      mongoose: '~3.8.20',
+18 silly publish      morgan: '~1.5.0',
+18 silly publish      nightmare: '^1.7.0',
+18 silly publish      request: '^2.51.0',
+18 silly publish      'serve-favicon': '~2.2.0',
+18 silly publish      underscore: '^1.8.2' },
+18 silly publish   devDependencies:
+18 silly publish    { gulp: '~3.8.10',
+18 silly publish      'gulp-livereload': '~3.4.0',
+18 silly publish      'gulp-nodemon': '~1.0.4',
+18 silly publish      should: '^4.6.2' },
+18 silly publish   readme: '# express-coffee-mocha-boilerplate\n###### a boilerplate api that we use at Venn to create a modular, testable, coffeescriptable API\n- Express 4 MVC boilerplate including \n  - coffeescript\n  - mocha testing framework\n  - versioning\n  - gulp\n  - environments (see config.coffee)\n- Generated/tweaked from https://github.com/petecoop/generator-express\n\n##### install\n```\nnpm install\n```\n\n##### run server\n```\ngulp serve\n```\n\n##### run tests (while server is running)\n```\nmocha\n```\n\n##### the best part... \n###### when all tests pass... you get a plane landing safely animation\n```\n  ------------------------------------------\n  ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅✈\n  ------------------------------------------\n```\n\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '193891554c470f2d2d6f408054985902430892e7',
+18 silly publish   description: '- Express 4 MVC boilerplate including    - coffeescript   - mocha testing framework   - versioning   - gulp   - environments (see config.coffee) - Generated/tweaked from https://github.com/petecoop/generator-express',
+18 silly publish   _id: 'api@0.0.1',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: 'e39ae9f32f8b41ac3b41b73c7f1f6ec79f3219a6',
+18 silly publish   _from: '.' }
+19 verbose stack Error: This package has been marked as private
+19 verbose stack Remove the 'private' field from the package.json to publish it.
+19 verbose stack     at publish_ (/usr/local/lib/node_modules/npm/lib/publish.js:99:5)
+19 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+19 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+19 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+19 verbose stack     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+19 verbose stack     at /usr/local/lib/node_modules/npm/lib/publish.js:65:5
+19 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+19 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+19 verbose stack     at /usr/local/lib/node_modules/npm/lib/cache.js:355:14
+19 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/write-file-atomic/index.js:29:15
+20 verbose cwd /Users/timgiblin/Dropbox/Code/cli-api
+21 error Darwin 14.0.0
+22 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+23 error node v0.12.0
+24 error npm  v2.5.1
+25 error This package has been marked as private
+25 error Remove the 'private' field from the package.json to publish it.
+26 error If you need help, you may report this error at:
+26 error     <http://github.com/npm/npm/issues>
+27 verbose exit [ 1, true ]

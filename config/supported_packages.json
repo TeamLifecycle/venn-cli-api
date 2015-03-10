@@ -8,7 +8,7 @@
       "uninstallCmd": "npm uninstall --save venn-places",
       "installCmd": "npm install --save venn-places",
       "installedMsg": "Venn Places installed.",
-      "configuredMsg": "Venn Places configured.\nYou can start using with:\nvar places = require(\"venn-places\");\nplaces.init(require(process.env.PWD + \"/.vennconfig.json\")[\"app\"][\"id\"]);\nplaces.search(....)"
+      "configuredMsg": "Venn Places configured.\nYou can start using with (below is your actual Venn API Key):\nvar places = require(\"venn-places\");\nplaces.init(API_KEY);\nplaces.search(....)"
     },
     "email": {
       "id": "email",
@@ -25,7 +25,13 @@
     "places" : {
       "id": "places",
       "name": "Venn Places",
-      "active": false
+      "active": true,
+      "preInstallCmd": "",
+      "uninstallCmd": "pip uninstall venn-places",
+      "installCmd": "",
+      "manualInstallCmd": "Please run: \"pip install venn-places\"",
+      "installedMsg": "Venn Places installed.",
+      "configuredMsg": "Venn Places configured.\nYou can start using with (below is your actual Venn API Key):\nfrom venn import PlacesAPI\napi = PlacesAPI(API_KEY)\napi.search(...)"
     },
     "email" : {
       "id": "email",

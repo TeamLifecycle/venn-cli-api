@@ -47,6 +47,13 @@ homeController.getPackages = (req, res) ->
 homeController.installPackages = (req, res) ->
 	lang = req.params.lang
 	service = req.params.service
+
+	# insert api key into configuredMsg
+	serviceResponse = supportedPackages[lang][service]
+	stringKey = "\"" + req.query.key + "\""
+	configuredMsg = serviceResponse["configuredMsg"].replace("API_KEY", stringKey)
+	serviceResponse.configuredMsg = configuredMsg
+	
 	res.status(200).send supportedPackages[lang][service]
 
 module.exports = homeController
