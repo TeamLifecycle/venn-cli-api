@@ -7,7 +7,7 @@ config =
     root: rootPath
     app:
       name: 'api'
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3001
     db: process.env.MONGO_URL || 'mongodb://localhost/api-development'
 
   test:
@@ -26,5 +26,7 @@ config =
 
 process.env['AWS_ACCESS_KEY_ID'] = process.env.AWS_ACCESS_KEY_ID || 'AKIAJBFT6MGV4CYS65AA'
 process.env['AWS_SECRET_ACCESS_KEY'] = process.env.AWS_SECRET_ACCESS_KEY || '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'
+
+console.log config[env]
 
 module.exports = config[env]
