@@ -20,7 +20,7 @@ homeController.getKeysForApp = (req, res) ->
 	IntegrationType.findOne
 		slug: req.body.slug
 	, (err, type) ->
-		console.log req.body.appId, type._id
+		# console.log req.body.appId, type._id
 		AppIntegration.find
 			app: new MyObjectId(req.body.appId)
 			"integration.type._id": new MyObjectId(type._id)
@@ -29,12 +29,12 @@ homeController.getKeysForApp = (req, res) ->
 			console.error err if err
 			keys = {}
 			_.each appIntegrations, (appint) ->
-				keys[appint.integration.slug] = appint.requiredFields
+				keys[appint.integration.slug] = appint.requiredFields if appint.active
 			return res.status(200).send(keysToObj(keys))
 
 
 keysToObj = (obj) ->
-	console.log obj
+	# console.log obj
 	bigObj = {}
 	for slug,valuesArray of obj
 		bigObj[slug] = arrayToObject(valuesArray)
